@@ -10,6 +10,7 @@ function App() {
     let [recipe, setRecipe] = useState([]);
     let [searchingredients, setSearchingredients] = useState("");
     let [searchQuery, setSearchQuery] = useState("");
+    let [explain, setExplain] = useState(false);
 
     async function getRecipeRequest(searchingredients, searchQuery) {
         const url = `http://www.recipepuppy.com/api/?i=${searchingredients}&q=${searchQuery}&p=1`;
@@ -35,7 +36,7 @@ function App() {
                     <SearchSecond searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
                 </div>
                 <div className="row">
-                    <List recipe={recipe} />
+                    <List recipe={recipe} explain={explain} setExplain={setExplain} />
                 </div>
             </div>
         </div>
